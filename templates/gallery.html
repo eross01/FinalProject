@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Gallery</title>
+{% endblock %}
+
+{% block body %}
+
+    <hr class="boundary">
+    <!--From https://getbootstrap.com/docs/4.5/components/jumbotron/-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+        <h1 class="galleryDecor"><strong>Gallery</strong></h1>
+        <p class="lead"><h3>Journey through the lens of photography. Experience the magic of the cultural richness of the world.</h3></p>
+        </div>
+    </div>
+    <hr class="boundary">
+    <!--End from https://getbootstrap.com/docs/4.5/components/jumbotron/-->
+    
+    {% for row in rows %}
+    <div class="responsive">
+        <div class="gallery crop">
+                <img src= "{{ row['Filename'] }}" alt= "{{ row['Caption'] }}" onclick="openModal();currentSlide( {{ nums[row['Name']] }} )">
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="clearfix"></div>
+
+    <!--Heavily edited based on https://www.w3schools.com/howto/howto_js_lightbox.asp -->
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            {% for row in rows %}
+                <div class="mySlides">
+                    <div class="numbertext">
+                        {{ nums[row['Name']] }} / {{ length }}
+                    </div>
+                    <img class="pics" src= "{{ row['Filename'] }}" alt= "{{ row['Caption'] }}" style="width:100%">
+                </div>
+            {% endfor %}
+        
+            <!-- Next/previous controls -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+            <!-- Caption text -->
+            <div class="caption-container">
+        <p id="caption"></p>
+    </div> 
+    <!--End from https://www.w3schools.com/howto/howto_js_lightbox.asp -->
+
+    <script src="/static/gallery.js"></script>
+
+{% endblock %}

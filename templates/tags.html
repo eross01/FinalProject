@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Tags</title>
+    <script src="/static/tags.js"></script>
+{% endblock %}
+
+{% block body %}
+    <hr class="boundary">
+
+    <div id="blockBody">
+
+        {% if noReturns %}
+            <!--From https://getbootstrap.com/docs/4.5/components/alerts/ and https://www.w3schools.com/bootstrap4/bootstrap_alerts.asp-->
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4 class="alert-heading"><strong>Sorry!</strong></h4>
+                <h6>There were no pictures that matched with this tag.</h6>
+                <h6 class="mb-0">Please choose from one of the <strong>tags</strong> below or complete another search</h6>
+            </div>
+            <!--End from https://getbootstrap.com/docs/4.5/components/alerts/ and https://www.w3schools.com/bootstrap4/bootstrap_alerts.asp-->
+        {% endif %}
+
+        <!--From https://getbootstrap.com/docs/4.5/components/jumbotron/ and https://www.w3schools.com/bootstrap4/bootstrap_alerts.asp-->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+            <h1 class="galleryDecor">Tags</h1>
+            <p class="lead">Pick a photo category that fits your interests.</p>
+            </div>
+        </div>
+        <!--End from https://getbootstrap.com/docs/4.5/components/jumbotron/ and https://www.w3schools.com/bootstrap4/bootstrap_alerts.asp-->
+
+        <div id="tagcloud" data-maxfont="128" data-minfont="20">
+            {% for row in rows %}
+                <span data-count= "{{row['Tagcount']}}">
+                    <div class="putOnLine">
+                        <form action="/gallery" method="post">
+                            <button class="allButtons" type="submit" name="tag" value="{{row['Tag']}}">{{row['Tag']}}</button>
+                        </form>
+                    </div>
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    <!--From https://geekthis.net/post/javascript-tag-cloud/ -->
+    <script>
+        var tc = document.getElementById('tagcloud');
+        tagcloud(tc,'span');
+    </script>
+    <!--End from https://geekthis.net/post/javascript-tag-cloud/ -->
+{% endblock %}

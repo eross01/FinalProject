@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Our Founders</title>
+{% endblock %}
+
+{% block body %}
+
+    <hr class="boundary">
+    <!--From https://getbootstrap.com/docs/4.5/components/jumbotron/ -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+        <h1 id="galleryDecor"><strong>Our Founders</strong></h1>
+        <p class="lead"><h3>The creators of the technique, company, and word.</h3></p>
+        </div>
+    </div>
+    <!--End from https://getbootstrap.com/docs/4.5/components/jumbotron/ -->
+
+    <div id="foundersBG">
+        <div class="break"></div>
+
+        <table class="founders">
+            <th>
+                <img class="idPics" src="/static/WebsitePics/Linked in pic.jpg" alt="Picture of Erin Ross"></th>
+            <td class="cells">
+                <h2>Erin Ross</h2>
+                <div class="break"></div>
+                <p class="idText">Erin is currently a freshman at Temple University in Philadelphia,
+                    PA. Prior to her enrollment at Temple, Erin attended schools 
+                    in the Fairport Central School District in Rochester, NY. There,
+                    she was a dancer, musician, member of the math team, and 
+                    a National Honor Society officer. In her free time, Erin enjoys
+                    taking pictures, watching movies, and spending time with her family.
+                </p>
+            </td>
+        </table>
+
+        <div class="break"></div>
+
+        <table class="founders">
+            <th>
+                <img class="idPics" src="/static/WebsitePics/RachelPic.JPG" alt="Picture of Erin Ross"></th>
+            <td class="cells">
+                <h2>Rachel</h2>
+                <div class="break"></div>
+                <p class="idText">Rachel is currently a freshman in college in Buffalo, NY. Prior to her enrollment there, Rachel attended high school 
+                    in Rochester, NY. She was a musician and a black belt in karate. In her free time, Rachel enjoys taking pictures, watcing musicals, and doing art projects.
+                </p>
+            </td>
+        </table>
+    </div>
+{% endblock %}

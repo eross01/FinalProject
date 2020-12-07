@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Dramartsy</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <hr class="boundary">
+
+    <div>
+        <h1 id="intro"> Dramartsy: Photographic masterpieces through a dramatic, artistic lens</p>
+    </div>
+
+    <div id="behindSlides">
+        <br>
+        <!-- Heavily edited based on https://www.w3schools.com/howto/howto_js_slideshow.asp-->
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="introSlides fading">
+            <img src="/static/WebsitePics/Beach.JPG" alt="Picture of a beach at sunset" style="width:100%">
+            <div class="over">Art</div>
+        </div>
+    
+        <div class="introSlides fading">
+            <img src="/static/WebsitePics/Nature.JPG" alt="Picture of forest and pond" style="width:100%">
+            <div class="over">Vision</div>
+        </div>
+    
+        <div class="introSlides fading">
+            <img src="/static/WebsitePics/Castle.jpg" alt="Picture of pathway to a castle" style="width:100%">
+            <div class="over">Wonder</div>
+        </div>
+        <!--End from https://www.w3schools.com/howto/howto_js_slideshow.asp-->
+    </div>
+
+    <br>
+    <br>
+
+    <hr class="boundary">
+
+    <div id="mission">
+        <h1 id="missionHeader">Our Mission</h1>
+        <p id="missionText">In a time where we must stay in our homes due to the ongoing COVID-19 pandemic, Dramartsy strives to allow people
+            the ability to still feel connected with the world. Journey through places via pictures in order to explore. We 
+            hope our photographs bring you joy and comfort during this difficult time.
+        </p>
+    </div>
+
+  <script src="/static/index.js"></script>
+{% endblock %}
